@@ -6,16 +6,6 @@ import './formulario.css'
 
 const Formulario = (props) => {
 
-  const times = [
-    'Programaçao',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'Ux e Design',
-    'Mobile',
-    'Inovacao e Gestao'
-  ]
-
   const [nome, setNome] = useState('')
   const [cargo, setCargo] = useState('')
   const [imagem, setImagem] = useState('')
@@ -32,6 +22,10 @@ const Formulario = (props) => {
       imagem,
       time
     })
+    setNome('')
+    setCargo('')
+    setImagem('')
+    setTime('')
   }
 
   return(
@@ -47,7 +41,6 @@ const Formulario = (props) => {
         valor={nome}
         aoAlterado={valor => setNome(valor)}
       />
-      <p>{nome}</p>
       <CampoTexto 
         obrigatorio={true} 
         label="Cargo" 
@@ -63,8 +56,9 @@ const Formulario = (props) => {
       />
       <ListaSuspensa 
         obrigatorio={true} 
-        label="Time" 
-        itens={time}
+        label="Times" 
+        itens={props.times}
+        valor={time}
         aoAlterado={valor => setTime(valor)}
       />
       {/* Esse botao poderia ser qualquer coisa, uma imagem ou um icone. */}

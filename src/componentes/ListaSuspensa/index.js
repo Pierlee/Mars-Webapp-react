@@ -6,7 +6,8 @@ const ListaSuspensa = (props) => {
     <div className='lista-suspensa'>
       <label>{props.label}</label>
       {/*Select é required quando tivermos props.required */}
-      <select onChange={evento => props.aoAlterado(evento.target.value)} required={props.required}>
+      <select onChange={evento => props.aoAlterado(evento.target.value)} required={props.required} value={props.valor}>
+        <option value=""></option>{/* value aqui é uma string vazia para ter a opçao de vazio nos options */}
         {/* para cada nome quero dar uma option (utilizamos o map que para cada item retorna uma option)*/}
         {props.itens.map(item => {
           // cada item da sua lista deve ter uma chave unica
